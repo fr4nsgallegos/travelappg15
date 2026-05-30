@@ -36,18 +36,28 @@ class _SharedPrefencesPageState extends State<SharedPrefencesPage> {
     setState(() {});
   }
 
+  Future<void> cargarContador() async {
+    final prefs = await SharedPreferences.getInstance();
+    final contadorAux = prefs.getInt("contador") ?? 0;
+    contador = contadorAux;
+    setState(() {});
+  }
+
   @override
   void initState() {
     super.initState();
     cargarNombre();
+    cargarContador();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
+        onPressed: () async {
           contador++;
+          final prefs = await SharedPreferences.getInstance();
+          await prefs.setInt("contador", contador);
           setState(() {});
         },
       ),
