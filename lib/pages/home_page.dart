@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:travellappg15/widgets/custom_expansion_tile.dart';
+import 'package:travellappg15/widgets/destination_card_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -66,6 +67,39 @@ class HomePage extends StatelessWidget {
               Icon(Icons.rocket, color: Colors.cyan),
               SizedBox(width: 8),
               Text("Discount tour"),
+            ],
+          ),
+        ),
+        body: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          child: ListView(
+            children: [
+              Text(
+                "Find the best tour",
+                style: TextStyle(fontSize: 26, fontWeight: FontWeight.w400),
+              ),
+              Text(
+                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+              ),
+
+              SizedBox(height: 16),
+              Text(
+                "Country",
+                style: TextStyle(fontWeight: FontWeight.w400, fontSize: 26),
+              ),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: [
+                    DestinationCardWidget(),
+                    DestinationCardWidget(),
+                    DestinationCardWidget(),
+                    DestinationCardWidget(),
+                    DestinationCardWidget(),
+                    DestinationCardWidget(),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
