@@ -1,24 +1,36 @@
 import 'package:flutter/material.dart';
 
 class WelcomeWidget extends StatelessWidget {
-  const WelcomeWidget({super.key});
+  String title;
+  String description;
+  String asset;
+  Color bgColor;
+  Size size;
+
+  WelcomeWidget({
+    super.key,
+    required this.title,
+    required this.description,
+    required this.asset,
+    required this.bgColor,
+    required this.size,
+  });
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
     return Container(
       margin: EdgeInsets.symmetric(vertical: 100, horizontal: 10),
       padding: EdgeInsets.all(32),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25),
-        color: Colors.orange,
+        color: bgColor,
       ),
       child: Column(
         children: [
-          Image.asset("assets/images/agregar.png", height: size.height / 5),
+          Image.asset("assets/images/$asset.png", height: size.height / 5),
           SizedBox(height: 32),
           Text(
-            "Viaja",
+            title,
             textAlign: TextAlign.center,
             style: TextStyle(
               fontSize: 30,
@@ -27,7 +39,7 @@ class WelcomeWidget extends StatelessWidget {
             ),
           ),
           Text(
-            "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. ",
+            description,
             style: TextStyle(color: Colors.white, fontSize: 15),
           ),
         ],

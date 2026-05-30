@@ -4,5 +4,5 @@ import 'package:travellappg15/pages/home_page.dart';
 import 'package:travellappg15/pages/welcome_page.dart';
 
 void main() {
-  runApp(MaterialApp(home: WelcomePage(), debugShowCheckedModeBanner: false));
+  runApp(MaterialApp(home: HomePage(), debugShowCheckedModeBanner: false));
 }
